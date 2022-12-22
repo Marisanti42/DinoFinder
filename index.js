@@ -1,6 +1,12 @@
 import Express from "express";
+import cors from 'cors'
 import fs from "fs";
 import dinobase from "./dinosaurs.js";
+
+// var corsOptions = {
+//   origin: 'http://example.com',
+//   optionsSuccessStatus: 200 // some legacy browsers (IE11, various SmartTVs) choke on 204
+// }
 
 let about_txt;
 fs.readFile("./static_content/about.txt", "utf8", (err, data) => {
@@ -19,6 +25,7 @@ fs.readFile("./static_content/endpoints.json", (err, data) => {
 });
 
 const app = Express();
+app.use(cors());
 const port = 1212;
 
 app.get("/", (req, res) => {
