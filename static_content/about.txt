@@ -1,1 +1,0 @@
-This is the about text. This will be returned on GET /about
